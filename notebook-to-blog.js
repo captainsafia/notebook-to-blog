@@ -3,6 +3,13 @@ define(['base/js/namespace',
     'jquery'], function(Jupyter, dialog, $) {
   function publish_to_medium() {
     var content = $('<p/>').html('Provide the information for your post.');
+    content.append($('<br/><br/>'));
+    content.append($('<input type="text" placeholder="Integration Token" name="integration-token"/>'));
+    content.append($('<br/><br/>'));
+    content.append($('<input type="text" placeholder="Post Title"" name="post-title"/>'));
+
+    Jupyter.keyboard_manager.register_events(content);
+
     dialog.modal({
       title: 'Publish to Medium',
       body: content,
