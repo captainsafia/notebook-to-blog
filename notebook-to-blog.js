@@ -1,5 +1,22 @@
-define(['base/js/namespace', 'jquery'], function(Jupyter, $) {
+define(['base/js/namespace',
+    'base/js/dialog',
+    'jquery'], function(Jupyter, dialog, $) {
   function publish_to_medium() {
+    var content = $('<p/>').html('Provide the information for your post.');
+    dialog.modal({
+      title: 'Publish to Medium',
+      body: content,
+      buttons: {
+        Cancel: {
+          'class': 'btn-danger'
+        },
+        Publish: {
+          'class': 'btn-primary',
+          'click': function() {
+          }
+        }
+      }
+    });
   }
 
   function place_ext_button() {
@@ -29,4 +46,3 @@ define(['base/js/namespace', 'jquery'], function(Jupyter, $) {
     load_ipython_extension: load_ipython_extension
   };
 });
-
